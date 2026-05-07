@@ -176,6 +176,7 @@ def _run_merge(engine: Engine):
 
     # ── MERGE with OUTPUT clause to count INSERTs vs UPDATEs ──
     merge_sql = f"""
+    SET NOCOUNT ON;
     DECLARE @MergeOutput TABLE (
         action      NVARCHAR(10),
         trade_date  DATE,

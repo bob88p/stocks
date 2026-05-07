@@ -21,7 +21,7 @@ input:
     - GOOGL
     - AMZN
     - TSLA
-  period: "1y"                          # 1d | 5d | 1mo | 3mo | 6mo | 1y | 2y | 5y | max
+  period: "3y"                          # 1d | 5d | 1mo | 3mo | 6mo | 1y | 2y | 5y | max
   interval: "1d"                        # 1m | 5m | 15m | 1h | 1d | 1wk | 1mo
   auto_adjust: true                     # adjust prices for splits & dividends
   has_header: true
@@ -38,7 +38,7 @@ input:
 # REJECTION — Bad rows handling
 # ------------------------------------------------------------
 rejection:
-  rejection_path: /opt/airflow/data/rejected/
+  rejection_path: data/rejected/
   rejection_type: csv
   max_rejection_rate: 0.10              # fail pipeline if >10% rows rejected
 
@@ -51,6 +51,9 @@ output:
   partition_cols:
     - date
   layers:
+    stage:
+      schema: stage
+      table:  stage_layer         # raw data as-is from yfinance
     bronze:
       schema: bronze
       table:  stock_prices_raw          # raw data as-is from yfinance

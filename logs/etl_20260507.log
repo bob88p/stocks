@@ -1,0 +1,965 @@
+2026-05-07 15:28:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:28:26 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:28:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:28:26 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:28:26 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:28:26 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:28:26 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:28:26 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:28:26 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:28:26 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:28:26 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:32:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:32:18 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:32:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:32:18 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:32:18 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:32:18 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:32:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:32:18 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:32:18 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:32:18 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:32:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:32:21 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:32:21 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:32:21 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:32:21 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:32:21 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:32:21 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:32:21 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:32:21 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:32:21 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:32:21 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:32:21 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:32:21 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:32:21 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:32:21 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:32:21 | INFO     | load.stage                | =======================================================
+2026-05-07 15:32:21 | INFO     | load.stage                | STAGE LAYER — Full Refresh Load
+2026-05-07 15:32:21 | INFO     | load.stage                | =======================================================
+2026-05-07 15:32:22 | ERROR    | load.stage                | DB connection failed: No module named 'pymssql'
+2026-05-07 15:34:03 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:34:03 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:34:03 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:34:03 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:34:03 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:34:03 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:34:03 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:34:03 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:34:03 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:34:03 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:34:03 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:34:07 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:34:07 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:34:07 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:34:07 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:34:07 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:34:07 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:34:07 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:34:07 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:34:07 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:34:07 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:34:07 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:34:07 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:34:07 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:34:07 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:34:07 | INFO     | load.stage                | =======================================================
+2026-05-07 15:34:07 | INFO     | load.stage                | STAGE LAYER — Full Refresh Load
+2026-05-07 15:34:07 | INFO     | load.stage                | =======================================================
+2026-05-07 15:34:07 | ERROR    | load.stage                | DB connection failed: No module named 'pymssql'
+2026-05-07 15:35:52 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:35:52 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:35:52 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:35:52 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:35:52 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:35:52 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:35:52 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:35:52 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:35:52 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:35:52 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:35:52 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:36:03 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:36:03 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:36:04 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:36:04 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:36:04 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:36:04 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:36:04 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:36:04 | WARNING  | transformation.clean      |   Rejected 251 rows with all prices NULL
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Valid rows    : 1004
+2026-05-07 15:36:04 | INFO     | transformation.clean      | Rejected rows : 251
+2026-05-07 15:36:04 | WARNING  | transformation.clean      | Rejection reasons:
+reject_reason
+all_prices_null    251
+2026-05-07 15:36:04 | INFO     | pipeline                  | Valid records: 1004, Rejected records: 251
+2026-05-07 15:36:04 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:36:04 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:36:04 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:36:04 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:36:04 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:36:04 | INFO     | load.stage                | =======================================================
+2026-05-07 15:36:04 | INFO     | load.stage                | STAGE LAYER — Full Refresh Load
+2026-05-07 15:36:04 | INFO     | load.stage                | =======================================================
+2026-05-07 15:36:04 | ERROR    | load.stage                | DB connection failed: Invalid argument(s) 'fast_executemany' sent to create_engine(), using configuration MSDialect_pymssql/QueuePool/Engine.  Please check that the keyword arguments are appropriate for this combination of components.
+2026-05-07 15:41:36 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:41:36 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:41:36 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:41:36 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:41:36 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:41:36 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:41:36 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:41:36 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:41:36 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:41:36 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:41:36 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:41:38 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:41:38 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:41:38 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:41:38 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:41:38 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:41:38 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:41:38 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:41:38 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:41:38 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:41:38 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:41:38 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:41:38 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:41:38 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:41:38 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:41:38 | INFO     | load.stage                | =======================================================
+2026-05-07 15:41:38 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 15:41:38 | INFO     | load.stage                | =======================================================
+2026-05-07 15:44:27 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:44:27 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:44:27 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:44:27 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:44:27 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:44:27 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:44:27 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:44:27 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:44:27 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:44:27 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:44:27 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:44:29 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:44:29 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:44:29 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:44:29 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:44:29 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:44:29 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:44:29 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:44:29 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:44:29 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:44:29 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:44:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:44:29 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:44:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:44:29 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:44:29 | INFO     | load.stage                | =======================================================
+2026-05-07 15:44:29 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 15:44:29 | INFO     | load.stage                | =======================================================
+2026-05-07 15:52:58 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:52:58 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:52:58 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:53:31 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:53:31 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:53:31 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:53:31 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:53:31 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:53:31 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:53:31 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:53:31 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:53:31 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:53:31 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:53:31 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:53:32 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:53:32 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:53:32 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:53:32 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:53:32 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:53:32 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:53:32 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:53:32 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:53:33 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:53:33 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:53:33 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:53:33 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:53:33 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:53:33 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:53:33 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:53:33 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:53:33 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:53:33 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:53:33 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:53:33 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:53:33 | INFO     | load.stage                | =======================================================
+2026-05-07 15:53:33 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 15:53:33 | INFO     | load.stage                | =======================================================
+2026-05-07 15:58:29 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:58:29 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 15:58:29 | INFO     | pipeline                  | ============================================================
+2026-05-07 15:58:29 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 15:58:29 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 15:58:29 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 15:58:29 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:58:29 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 15:58:29 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 15:58:29 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 15:58:29 | INFO     | extract.reader            | =======================================================
+2026-05-07 15:58:35 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 15:58:35 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 15:58:35 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 15:58:35 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 15:58:35 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 15:58:35 | INFO     | transformation.clean      | =======================================================
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 15:58:35 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 15:58:35 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 15:58:35 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 15:58:35 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 15:58:35 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:58:35 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 15:58:35 | INFO     | transformation.check      | =======================================================
+2026-05-07 15:58:35 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 15:58:35 | INFO     | load.stage                | =======================================================
+2026-05-07 15:58:35 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 15:58:35 | INFO     | load.stage                | =======================================================
+2026-05-07 15:58:36 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 15:58:36 | WARNING  | load.stage                | Stage not available yet: (pyodbc.ProgrammingError) ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'stage.stock_stage'. (208) (SQLExecDirectW)")
+[SQL: 
+        SELECT
+            MIN(trade_date),
+            MAX(trade_date),
+            COUNT(*)
+        FROM stage.stock_stage
+    ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2026-05-07 15:58:36 | INFO     | load.stage                | Stage is empty (first run)
+2026-05-07 15:58:36 | INFO     | load.stage                | Incoming -> 1255 rows | 2025-05-07 00:00:00 -> 2026-05-06 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 15:58:36 | INFO     | load.stage                | Starting atomic load -> 1255 rows
+2026-05-07 16:07:58 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:07:58 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:07:58 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:07:58 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:07:58 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 16:07:58 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:07:58 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:07:58 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:07:58 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:07:58 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:07:58 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:08:03 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:08:03 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:08:03 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 16:08:03 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:08:03 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 16:08:03 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:08:03 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 16:08:03 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:08:03 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 16:08:03 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:08:03 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:08:03 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:08:03 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:08:03 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:08:03 | INFO     | load.stage                | =======================================================
+2026-05-07 16:08:03 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:08:03 | INFO     | load.stage                | =======================================================
+2026-05-07 16:09:40 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:09:40 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:09:40 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:09:40 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:09:40 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 16:09:40 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:09:40 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:09:40 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:09:40 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:09:40 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:09:40 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:09:43 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:09:43 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:09:43 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 16:09:43 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:09:43 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 16:09:43 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:09:43 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 16:09:43 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:09:43 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 16:09:43 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:09:43 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:43 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:09:43 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:43 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:09:43 | INFO     | load.stage                | =======================================================
+2026-05-07 16:09:43 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:09:43 | INFO     | load.stage                | =======================================================
+2026-05-07 16:09:44 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:09:44 | INFO     | load.stage                | Stage is empty (first run)
+2026-05-07 16:09:44 | INFO     | load.stage                | Incoming -> 1255 rows | 2025-05-07 00:00:00 -> 2026-05-06 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:09:44 | INFO     | load.stage                | Starting atomic load -> 1255 rows
+2026-05-07 16:09:44 | INFO     | load.stage                | Stage AFTER load -> 1255 rows loaded OK
+2026-05-07 16:09:44 | INFO     | pipeline                  | Successfully loaded 1255 rows into stage
+2026-05-07 16:09:44 | INFO     | pipeline                  | Performing post-load stage validation...
+2026-05-07 16:09:44 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:44 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:09:44 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:44 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:09:44 | INFO     | pipeline                  | Merging Stage data into Bronze (Upsert)...
+2026-05-07 16:09:44 | INFO     | load.merge                | =======================================================
+2026-05-07 16:09:44 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:09:44 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:09:44 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:09:44 | INFO     | load.merge                | =======================================================
+2026-05-07 16:09:44 | INFO     | load.merge                | Stage rows        : 1255
+2026-05-07 16:09:44 | INFO     | load.merge                | Bronze rows before: 0
+2026-05-07 16:09:44 | ERROR    | load.merge                | MERGE failed: This result object does not return rows. It has been closed automatically.
+2026-05-07 16:09:50 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:09:50 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:09:50 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:09:50 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:09:50 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 16:09:50 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:09:50 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:09:50 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:09:50 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:09:50 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:09:50 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:09:55 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:09:55 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:09:55 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 16:09:55 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:09:55 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 16:09:55 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:09:55 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 16:09:55 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:09:55 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 16:09:55 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:09:55 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:55 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:09:55 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:55 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:09:55 | INFO     | load.stage                | =======================================================
+2026-05-07 16:09:55 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:09:55 | INFO     | load.stage                | =======================================================
+2026-05-07 16:09:56 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:09:56 | INFO     | load.stage                | Stage BEFORE load -> 1255 rows | 2025-05-07 -> 2026-05-06
+2026-05-07 16:09:56 | INFO     | load.stage                | Incoming -> 1255 rows | 2025-05-07 00:00:00 -> 2026-05-06 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:09:56 | INFO     | load.stage                | Starting atomic load -> 1255 rows
+2026-05-07 16:09:56 | INFO     | load.stage                | Stage AFTER load -> 1255 rows loaded OK
+2026-05-07 16:09:56 | INFO     | pipeline                  | Successfully loaded 1255 rows into stage
+2026-05-07 16:09:56 | INFO     | pipeline                  | Performing post-load stage validation...
+2026-05-07 16:09:56 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:56 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:09:56 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:09:56 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:09:56 | INFO     | pipeline                  | Merging Stage data into Bronze (Upsert)...
+2026-05-07 16:09:56 | INFO     | load.merge                | =======================================================
+2026-05-07 16:09:56 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:09:56 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:09:56 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:09:56 | INFO     | load.merge                | =======================================================
+2026-05-07 16:09:56 | INFO     | load.merge                | Stage rows        : 1255
+2026-05-07 16:09:56 | INFO     | load.merge                | Bronze rows before: 0
+2026-05-07 16:09:56 | ERROR    | load.merge                | MERGE failed: This result object does not return rows. It has been closed automatically.
+2026-05-07 16:11:07 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:07 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:11:07 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:07 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:11:07 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 16:11:07 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:11:07 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:11:07 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:11:07 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:11:07 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:11:07 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:11:09 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:11:09 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:11:09 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 16:11:09 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:11:09 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 16:11:09 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:11:09 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 16:11:09 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:11:09 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 16:11:09 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:11:09 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:09 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:11:09 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:09 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:11:09 | INFO     | load.stage                | =======================================================
+2026-05-07 16:11:09 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:11:09 | INFO     | load.stage                | =======================================================
+2026-05-07 16:11:10 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:11:10 | INFO     | load.stage                | Stage BEFORE load -> 1255 rows | 2025-05-07 -> 2026-05-06
+2026-05-07 16:11:10 | INFO     | load.stage                | Incoming -> 1255 rows | 2025-05-07 00:00:00 -> 2026-05-06 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:11:10 | INFO     | load.stage                | Starting atomic load -> 1255 rows
+2026-05-07 16:11:10 | INFO     | load.stage                | Stage AFTER load -> 1255 rows loaded OK
+2026-05-07 16:11:10 | INFO     | pipeline                  | Successfully loaded 1255 rows into stage
+2026-05-07 16:11:10 | INFO     | pipeline                  | Performing post-load stage validation...
+2026-05-07 16:11:10 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:10 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:11:10 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:10 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:11:10 | INFO     | pipeline                  | Merging Stage data into Bronze (Upsert)...
+2026-05-07 16:11:10 | INFO     | load.merge                | =======================================================
+2026-05-07 16:11:10 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:11:10 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:11:10 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:11:10 | INFO     | load.merge                | =======================================================
+2026-05-07 16:11:10 | INFO     | load.merge                | Stage rows        : 1255
+2026-05-07 16:11:10 | INFO     | load.merge                | Bronze rows before: 0
+2026-05-07 16:11:10 | DEBUG    | load.merge                | MERGE SQL executed: 1255 inserts, 0 updates
+2026-05-07 16:11:10 | INFO     | load.merge                |   Inserted : 1255 new rows
+2026-05-07 16:11:10 | INFO     | load.merge                |   Updated  : 0 existing rows
+2026-05-07 16:11:10 | INFO     | load.merge                |   Bronze rows after: 1255
+2026-05-07 16:11:10 | INFO     | pipeline                  | Merge completed: 1255 inserted, 0 updated
+2026-05-07 16:11:10 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:10 | INFO     | pipeline                  | PIPELINE COMPLETED SUCCESSFULLY
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Source rows    : 1255
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Valid rows     : 1255
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Rejected rows  : 0
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Bronze (total) : 1255
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Date range     : 2025-05-07 -> 2026-05-06
+2026-05-07 16:11:10 | INFO     | pipeline                  |   Duration       : 2.47s
+2026-05-07 16:11:10 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:18 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:11:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:18 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:11:18 | INFO     | pipeline                  | Description: Extract stock market data from Yahoo Finance (yfinance), clean and load into SQL Server
+2026-05-07 16:11:18 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:11:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:11:18 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:11:18 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:11:18 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:11:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:11:22 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:11:22 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:11:22 | INFO     | pipeline                  | Extracted 1255 records from source: yahoo_finance
+2026-05-07 16:11:22 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:11:22 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Input rows : 1255
+2026-05-07 16:11:22 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:11:22 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Valid rows    : 1255
+2026-05-07 16:11:22 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:11:22 | INFO     | pipeline                  | Valid records: 1255, Rejected records: 0
+2026-05-07 16:11:22 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:11:22 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:22 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:11:22 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:22 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:11:22 | INFO     | load.stage                | =======================================================
+2026-05-07 16:11:22 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:11:22 | INFO     | load.stage                | =======================================================
+2026-05-07 16:11:22 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:11:22 | INFO     | load.stage                | Stage BEFORE load -> 1255 rows | 2025-05-07 -> 2026-05-06
+2026-05-07 16:11:22 | INFO     | load.stage                | Incoming -> 1255 rows | 2025-05-07 00:00:00 -> 2026-05-06 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:11:22 | INFO     | load.stage                | Starting atomic load -> 1255 rows
+2026-05-07 16:11:22 | INFO     | load.stage                | Stage AFTER load -> 1255 rows loaded OK
+2026-05-07 16:11:22 | INFO     | pipeline                  | Successfully loaded 1255 rows into stage
+2026-05-07 16:11:22 | INFO     | pipeline                  | Performing post-load stage validation...
+2026-05-07 16:11:22 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:22 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:11:22 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:11:22 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:11:22 | INFO     | pipeline                  | Merging Stage data into Bronze (Upsert)...
+2026-05-07 16:11:22 | INFO     | load.merge                | =======================================================
+2026-05-07 16:11:22 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:11:22 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:11:22 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:11:22 | INFO     | load.merge                | =======================================================
+2026-05-07 16:11:22 | INFO     | load.merge                | Stage rows        : 1255
+2026-05-07 16:11:22 | INFO     | load.merge                | Bronze rows before: 1255
+2026-05-07 16:11:22 | DEBUG    | load.merge                | MERGE SQL executed: 0 inserts, 1255 updates
+2026-05-07 16:11:22 | INFO     | load.merge                |   Inserted : 0 new rows
+2026-05-07 16:11:22 | INFO     | load.merge                |   Updated  : 1255 existing rows
+2026-05-07 16:11:22 | INFO     | load.merge                |   Bronze rows after: 1255
+2026-05-07 16:11:22 | INFO     | pipeline                  | Merge completed: 0 inserted, 1255 updated
+2026-05-07 16:11:22 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:11:22 | INFO     | pipeline                  | PIPELINE COMPLETED SUCCESSFULLY
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Source rows    : 1255
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Valid rows     : 1255
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Rejected rows  : 0
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Bronze (total) : 1255
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Date range     : 2025-05-07 -> 2026-05-06
+2026-05-07 16:11:22 | INFO     | pipeline                  |   Duration       : 4.4s
+2026-05-07 16:11:22 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:16:12 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:16:12 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:16:12 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:16:12 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:16:12 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:16:12 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:16:12 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:16:12 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:16:12 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:16:12 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:16:12 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:16:15 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:16:15 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:16:15 | INFO     | pipeline                  | Filtered for incremental load. New records: 0
+2026-05-07 16:16:15 | INFO     | pipeline                  | No new data to process. Pipeline ending.
+2026-05-07 16:22:08 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:22:08 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:22:08 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:22:08 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:22:08 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:22:08 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:22:08 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:22:08 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:22:08 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:22:08 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:22:08 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:22:12 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:22:12 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:22:12 | INFO     | extract.reader            | Date range: 2025-05-07 00:00:00 -> 2026-05-06 00:00:00
+2026-05-07 16:22:12 | INFO     | pipeline                  | No records found newer than last Bronze date.
+2026-05-07 16:22:12 | INFO     | pipeline                  | Skipping Stage/Bronze layers (no new data to load).
+2026-05-07 16:22:12 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:22:12 | INFO     | load.silver               | =======================================================
+2026-05-07 16:22:12 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:22:12 | INFO     | load.silver               | =======================================================
+2026-05-07 16:22:12 | INFO     | load.silver               | Last date in Silver: None
+2026-05-07 16:22:12 | INFO     | load.silver               | Calculating technical indicators (Daily Return, MA7, Volatility)...
+2026-05-07 16:22:12 | INFO     | load.silver               | Loading 1255 rows into silver.stock_prices_clean...
+2026-05-07 16:22:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:22:18 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:22:18 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:22:18 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:22:18 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:22:18 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:22:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:22:18 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:22:18 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:22:18 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:22:18 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:22:23 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:22:23 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:22:23 | INFO     | extract.reader            | Date range: 2025-05-07 00:00:00 -> 2026-05-06 00:00:00
+2026-05-07 16:22:23 | INFO     | pipeline                  | No records found newer than last Bronze date.
+2026-05-07 16:22:23 | INFO     | pipeline                  | Skipping Stage/Bronze layers (no new data to load).
+2026-05-07 16:22:23 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:22:23 | INFO     | load.silver               | =======================================================
+2026-05-07 16:22:23 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:22:23 | INFO     | load.silver               | =======================================================
+2026-05-07 16:22:23 | INFO     | load.silver               | Last date in Silver: None
+2026-05-07 16:22:23 | INFO     | load.silver               | Calculating technical indicators (Daily Return, MA7, Volatility)...
+2026-05-07 16:22:23 | INFO     | load.silver               | Loading 1255 rows into silver.stock_prices_clean...
+2026-05-07 16:25:15 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:25:15 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:25:15 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:25:15 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:25:15 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:25:15 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:25:15 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:25:15 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:25:15 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:25:15 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:25:15 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:25:26 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:25:26 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:25:26 | INFO     | extract.reader            | Date range: 2025-05-07 00:00:00 -> 2026-05-06 00:00:00
+2026-05-07 16:25:26 | INFO     | pipeline                  | No records found newer than last Bronze date.
+2026-05-07 16:25:26 | INFO     | pipeline                  | Skipping Stage/Bronze layers (no new data to load).
+2026-05-07 16:25:26 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:25:26 | INFO     | load.silver               | =======================================================
+2026-05-07 16:25:26 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:25:26 | INFO     | load.silver               | =======================================================
+2026-05-07 16:25:26 | INFO     | load.silver               | Last date in Silver: None
+2026-05-07 16:25:26 | INFO     | load.silver               | Calculating technical indicators (Daily Return, MA7, Volatility)...
+2026-05-07 16:25:26 | INFO     | load.silver               | Loading 1255 rows into silver.stock_prices_clean...
+2026-05-07 16:25:26 | INFO     | pipeline                  | Silver layer updated: 1255 rows processed.
+2026-05-07 16:25:26 | INFO     | load.silver               | Refreshing GOLD Layer View...
+2026-05-07 16:25:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:25:26 | INFO     | pipeline                  | PIPELINE COMPLETED SUCCESSFULLY
+2026-05-07 16:25:26 | INFO     | pipeline                  |   Valid rows (new) : 0
+2026-05-07 16:25:26 | INFO     | pipeline                  |   Silver (loaded)  : 1255
+2026-05-07 16:25:26 | INFO     | pipeline                  |   Duration         : 11.02s
+2026-05-07 16:25:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:26:27 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:26:27 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:26:27 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:26:27 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:26:27 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:26:27 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:26:27 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:26:27 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:26:27 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:26:27 | INFO     | extract.reader            |   Period   : 1y  |  Interval: 1d
+2026-05-07 16:26:27 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:26:31 | INFO     | extract.reader            | Extracted 1255 rows
+2026-05-07 16:26:31 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:26:31 | INFO     | extract.reader            | Date range: 2025-05-07 00:00:00 -> 2026-05-06 00:00:00
+2026-05-07 16:26:31 | INFO     | pipeline                  | No records found newer than last Bronze date.
+2026-05-07 16:26:31 | INFO     | pipeline                  | Skipping Stage/Bronze layers (no new data to load).
+2026-05-07 16:26:31 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:26:31 | INFO     | load.silver               | =======================================================
+2026-05-07 16:26:31 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:26:31 | INFO     | load.silver               | =======================================================
+2026-05-07 16:26:31 | INFO     | load.silver               | Last date in Silver: 2026-05-06
+2026-05-07 16:31:44 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:31:44 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:31:44 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:31:44 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:31:44 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:31:44 | INFO     | pipeline                  | Last record in Bronze: 2026-05-06
+2026-05-07 16:31:44 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:31:44 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:31:44 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:31:44 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:31:44 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:31:46 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:31:46 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:31:46 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:31:46 | INFO     | pipeline                  | Filtered for incremental load. New records: 5
+2026-05-07 16:31:46 | INFO     | pipeline                  | Starting data cleaning...
+2026-05-07 16:31:46 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Input rows : 5
+2026-05-07 16:31:46 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:31:46 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Valid rows    : 5
+2026-05-07 16:31:46 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:31:46 | INFO     | pipeline                  | Valid records: 5, Rejected records: 0
+2026-05-07 16:31:46 | INFO     | pipeline                  | Starting data quality checks (pre-load)...
+2026-05-07 16:31:46 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:31:46 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:31:46 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:31:46 | INFO     | pipeline                  | Loading data to SQL Server Stage layer...
+2026-05-07 16:31:46 | INFO     | load.stage                | =======================================================
+2026-05-07 16:31:46 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:31:46 | INFO     | load.stage                | =======================================================
+2026-05-07 16:31:46 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:31:46 | INFO     | load.stage                | Stage BEFORE load -> 1255 rows | 2025-05-07 -> 2026-05-06
+2026-05-07 16:31:46 | INFO     | load.stage                | Incoming -> 5 rows | 2026-05-07 00:00:00 -> 2026-05-07 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:31:46 | INFO     | load.stage                | Starting atomic load -> 5 rows
+2026-05-07 16:31:46 | INFO     | load.stage                | Stage AFTER load -> 5 rows loaded OK
+2026-05-07 16:31:46 | INFO     | pipeline                  | Performing post-load stage validation...
+2026-05-07 16:31:46 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:31:46 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:31:46 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:31:46 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:31:46 | INFO     | pipeline                  | Merging Stage data into Bronze (Upsert)...
+2026-05-07 16:31:46 | INFO     | load.merge                | =======================================================
+2026-05-07 16:31:46 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:31:46 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:31:46 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:31:46 | INFO     | load.merge                | =======================================================
+2026-05-07 16:31:46 | INFO     | load.merge                | Stage rows        : 5
+2026-05-07 16:31:46 | INFO     | load.merge                | Bronze rows before: 1255
+2026-05-07 16:31:46 | DEBUG    | load.merge                | MERGE SQL executed: 5 inserts, 0 updates
+2026-05-07 16:31:46 | INFO     | load.merge                |   Inserted : 5 new rows
+2026-05-07 16:31:46 | INFO     | load.merge                |   Updated  : 0 existing rows
+2026-05-07 16:31:46 | INFO     | load.merge                |   Bronze rows after: 1260
+2026-05-07 16:31:46 | INFO     | pipeline                  | Merge completed: 5 inserted, 0 updated
+2026-05-07 16:31:46 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:31:46 | INFO     | load.silver               | =======================================================
+2026-05-07 16:31:46 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:31:46 | INFO     | load.silver               | =======================================================
+2026-05-07 16:31:46 | INFO     | load.silver               | Last date in Silver: 2026-05-06
+2026-05-07 16:32:10 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:32:10 | INFO     | pipeline                  | ETL PIPELINE STARTING
+2026-05-07 16:32:10 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:32:10 | INFO     | pipeline                  | Loaded config for job: stock_market_etl v1.0
+2026-05-07 16:32:10 | INFO     | pipeline                  | Starting data extraction...
+2026-05-07 16:32:11 | INFO     | pipeline                  | Last record in Bronze: 2026-05-07
+2026-05-07 16:32:11 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:32:11 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:32:11 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:32:11 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:32:11 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:32:13 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:32:13 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:32:13 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:32:13 | INFO     | pipeline                  | No records found newer than last Bronze date.
+2026-05-07 16:32:13 | INFO     | pipeline                  | Skipping Stage/Bronze layers (no new data to load).
+2026-05-07 16:32:13 | INFO     | pipeline                  | Checking Silver layer status...
+2026-05-07 16:32:13 | INFO     | load.silver               | =======================================================
+2026-05-07 16:32:13 | INFO     | load.silver               | SILVER LAYER — Enriched Data
+2026-05-07 16:32:13 | INFO     | load.silver               | =======================================================
+2026-05-07 16:32:13 | INFO     | load.silver               | Last date in Silver: 2026-05-06
+2026-05-07 16:40:25 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:40:25 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:40:25 | INFO     | pipeline                  | Job: stock_market_etl v1.0
+2026-05-07 16:40:25 | INFO     | pipeline                  | Last Bronze Date: 2026-05-07
+2026-05-07 16:40:25 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:40:25 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:40:25 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:40:25 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:40:25 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:40:28 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:40:28 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:40:28 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:40:28 | INFO     | pipeline                  | No new data to process
+2026-05-07 16:40:28 | INFO     | load.silver               | ============================================================
+2026-05-07 16:40:28 | INFO     | load.silver               | SILVER LAYER — Incremental Feature Engineering
+2026-05-07 16:40:28 | INFO     | load.silver               | ============================================================
+2026-05-07 16:40:28 | INFO     | load.silver               | Last processed date in Silver: 2026-05-06
+2026-05-07 16:40:28 | INFO     | load.silver               | Calculating technical indicators...
+2026-05-07 16:40:28 | INFO     | load.silver               | Loading 5 rows into silver.stock_prices_clean...
+2026-05-07 16:40:28 | INFO     | load.silver               | Silver layer updated successfully ok
+2026-05-07 16:40:28 | INFO     | load.silver               | Refreshing GOLD view...
+2026-05-07 16:40:28 | INFO     | load.silver               | Gold view refreshed ok
+2026-05-07 16:40:28 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:40:28 | INFO     | pipeline                  | New records processed: 0
+2026-05-07 16:40:28 | INFO     | pipeline                  | Silver processed: 5
+2026-05-07 16:40:28 | INFO     | pipeline                  | Duration: 2.89s
+2026-05-07 16:40:28 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:41:22 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:41:22 | INFO     | pipeline                  |  ETL PIPELINE STARTED
+2026-05-07 16:41:22 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:41:22 | INFO     | pipeline                  | Job: stock_market_etl v1.0
+2026-05-07 16:41:22 | INFO     | pipeline                  |  Extracting data...
+2026-05-07 16:41:22 | INFO     | pipeline                  | Last Bronze Date: 2026-05-07
+2026-05-07 16:41:22 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:41:22 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:41:22 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:41:22 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:41:22 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:41:24 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:41:24 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:41:24 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:41:24 | INFO     | pipeline                  | No new data to process
+2026-05-07 16:41:24 | INFO     | pipeline                  |  Skipping ETL (no new data)
+2026-05-07 16:41:24 | INFO     | pipeline                  |  Processing Silver layer...
+2026-05-07 16:41:24 | INFO     | load.silver               | ============================================================
+2026-05-07 16:41:24 | INFO     | load.silver               | SILVER LAYER — Incremental Feature Engineering
+2026-05-07 16:41:24 | INFO     | load.silver               | ============================================================
+2026-05-07 16:41:24 | INFO     | load.silver               | Last processed date in Silver: 2026-05-07
+2026-05-07 16:41:24 | INFO     | load.silver               | No new data to process for Silver.
+2026-05-07 16:41:24 | INFO     | pipeline                  | Silver already up to date
+2026-05-07 16:41:24 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:41:24 | INFO     | pipeline                  | ok PIPELINE COMPLETED
+2026-05-07 16:41:24 | INFO     | pipeline                  | New records processed: 0
+2026-05-07 16:41:24 | INFO     | pipeline                  | Silver processed: 0
+2026-05-07 16:41:24 | INFO     | pipeline                  | Duration: 1.61s
+2026-05-07 16:41:24 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:43:43 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:43:43 | INFO     | pipeline                  |  ETL PIPELINE STARTED
+2026-05-07 16:43:43 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:43:43 | INFO     | pipeline                  | Job: stock_market_etl v1.0
+2026-05-07 16:43:43 | INFO     | pipeline                  |  Extracting data...
+2026-05-07 16:43:43 | INFO     | pipeline                  | Last Bronze Date: None
+2026-05-07 16:43:43 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:43:43 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:43:43 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:43:43 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:43:43 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:43:45 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:43:45 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:43:45 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:43:45 | INFO     | pipeline                  |  Cleaning data...
+2026-05-07 16:43:45 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Input rows : 3765
+2026-05-07 16:43:45 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:43:45 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Valid rows    : 3765
+2026-05-07 16:43:45 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:43:45 | INFO     | pipeline                  | Valid: 3765 | Rejected: 0
+2026-05-07 16:43:45 | INFO     | pipeline                  |  Pre-load validation...
+2026-05-07 16:43:45 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:43:45 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:43:45 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:43:45 | INFO     | load.stage                | =======================================================
+2026-05-07 16:43:45 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:43:45 | INFO     | load.stage                | =======================================================
+2026-05-07 16:43:45 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:43:45 | INFO     | load.stage                | Stage BEFORE load -> 5 rows | 2026-05-07 -> 2026-05-07
+2026-05-07 16:43:45 | INFO     | load.stage                | Incoming -> 3765 rows | 2023-05-08 00:00:00 -> 2026-05-07 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:43:45 | INFO     | load.stage                | Starting atomic load -> 3765 rows
+2026-05-07 16:43:45 | INFO     | load.stage                | Stage AFTER load -> 3765 rows loaded OK
+2026-05-07 16:43:45 | INFO     | pipeline                  |  Post-load validation...
+2026-05-07 16:43:45 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:43:45 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:43:45 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:43:45 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:43:45 | INFO     | pipeline                  |  Merging into Bronze...
+2026-05-07 16:43:45 | INFO     | load.merge                | =======================================================
+2026-05-07 16:43:45 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:43:45 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:43:45 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:43:45 | INFO     | load.merge                | =======================================================
+2026-05-07 16:43:45 | INFO     | load.merge                | Stage rows        : 3765
+2026-05-07 16:43:45 | INFO     | load.merge                | Bronze rows before: 0
+2026-05-07 16:43:45 | DEBUG    | load.merge                | MERGE SQL executed: 3765 inserts, 0 updates
+2026-05-07 16:43:45 | INFO     | load.merge                |   Inserted : 3765 new rows
+2026-05-07 16:43:45 | INFO     | load.merge                |   Updated  : 0 existing rows
+2026-05-07 16:43:45 | INFO     | load.merge                |   Bronze rows after: 3765
+2026-05-07 16:43:45 | INFO     | pipeline                  |  Processing Silver layer...
+2026-05-07 16:43:45 | INFO     | load.silver               | ============================================================
+2026-05-07 16:43:45 | INFO     | load.silver               | SILVER LAYER — Incremental Feature Engineering
+2026-05-07 16:43:45 | INFO     | load.silver               | ============================================================
+2026-05-07 16:43:45 | INFO     | load.silver               | Last processed date in Silver: 2026-05-07
+2026-05-07 16:43:45 | INFO     | load.silver               | No new data to process for Silver.
+2026-05-07 16:43:45 | INFO     | pipeline                  | Silver already up to date
+2026-05-07 16:43:45 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:43:45 | INFO     | pipeline                  | ok PIPELINE COMPLETED
+2026-05-07 16:43:45 | INFO     | pipeline                  | New records processed: 3765
+2026-05-07 16:43:45 | INFO     | pipeline                  | Silver processed: 0
+2026-05-07 16:43:45 | INFO     | pipeline                  | Duration: 2.21s
+2026-05-07 16:43:45 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:46:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:46:26 | INFO     | pipeline                  |  ETL PIPELINE STARTED
+2026-05-07 16:46:26 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:46:26 | INFO     | pipeline                  | Job: stock_market_etl v1.0
+2026-05-07 16:46:26 | INFO     | pipeline                  |  Extracting data...
+2026-05-07 16:46:26 | INFO     | pipeline                  | Last Bronze Date: None
+2026-05-07 16:46:26 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:46:26 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:46:26 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:46:26 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:46:26 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:46:29 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:46:29 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:46:29 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:46:29 | INFO     | pipeline                  |  Cleaning data...
+2026-05-07 16:46:29 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Cleaning 
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Input rows : 3765
+2026-05-07 16:46:29 | INFO     | transformation.clean      | =======================================================
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Step 2 | Removing duplicates on (trade_date, ticker)
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Step 3 | Handling missing values
+2026-05-07 16:46:29 | INFO     | transformation.clean      |   [INFO] Missing dates (weekends/holidays) are expected — not treated as errors
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Step 4 | Validating numerical columns
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Valid rows    : 3765
+2026-05-07 16:46:29 | INFO     | transformation.clean      | Rejected rows : 0
+2026-05-07 16:46:29 | INFO     | pipeline                  | Valid: 3765 | Rejected: 0
+2026-05-07 16:46:29 | INFO     | pipeline                  |  Pre-load validation...
+2026-05-07 16:46:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:46:29 | INFO     | transformation.check      | DATA QUALITY CHECK — Pre-load Validation
+2026-05-07 16:46:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:46:29 | INFO     | load.stage                | =======================================================
+2026-05-07 16:46:29 | INFO     | load.stage                | STAGE LAYER - Full Refresh Load
+2026-05-07 16:46:29 | INFO     | load.stage                | =======================================================
+2026-05-07 16:46:29 | INFO     | load.stage                | Connected to DB: localhost/Stock_db
+2026-05-07 16:46:29 | INFO     | load.stage                | Stage BEFORE load -> 3765 rows | 2023-05-08 -> 2026-05-07
+2026-05-07 16:46:29 | INFO     | load.stage                | Incoming -> 3765 rows | 2023-05-08 00:00:00 -> 2026-05-07 00:00:00 | tickers: ['AAPL', 'AMZN', 'GOOGL', 'MSFT', 'TSLA']
+2026-05-07 16:46:29 | INFO     | load.stage                | Starting atomic load -> 3765 rows
+2026-05-07 16:46:29 | INFO     | load.stage                | Stage AFTER load -> 3765 rows loaded OK
+2026-05-07 16:46:29 | INFO     | pipeline                  |  Post-load validation...
+2026-05-07 16:46:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:46:29 | INFO     | transformation.check      | POST-LOAD STAGE VALIDATION — stage.stock_stage
+2026-05-07 16:46:29 | INFO     | transformation.check      | =======================================================
+2026-05-07 16:46:29 | INFO     | transformation.check      | Distinct tickers: 5
+2026-05-07 16:46:29 | INFO     | pipeline                  |  Merging into Bronze...
+2026-05-07 16:46:29 | INFO     | load.merge                | =======================================================
+2026-05-07 16:46:29 | INFO     | load.merge                | BRONZE LAYER — Merge from Stage
+2026-05-07 16:46:29 | INFO     | load.merge                |   Source : stage.stock_stage
+2026-05-07 16:46:29 | INFO     | load.merge                |   Target : bronze.stock_prices_raw
+2026-05-07 16:46:29 | INFO     | load.merge                | =======================================================
+2026-05-07 16:46:29 | INFO     | load.merge                | Stage rows        : 3765
+2026-05-07 16:46:29 | INFO     | load.merge                | Bronze rows before: 0
+2026-05-07 16:46:30 | DEBUG    | load.merge                | MERGE SQL executed: 3765 inserts, 0 updates
+2026-05-07 16:46:30 | INFO     | load.merge                |   Inserted : 3765 new rows
+2026-05-07 16:46:30 | INFO     | load.merge                |   Updated  : 0 existing rows
+2026-05-07 16:46:30 | INFO     | load.merge                |   Bronze rows after: 3765
+2026-05-07 16:46:30 | INFO     | pipeline                  |  Processing Silver layer...
+2026-05-07 16:46:30 | INFO     | load.silver               | ============================================================
+2026-05-07 16:46:30 | INFO     | load.silver               | SILVER LAYER — Incremental Feature Engineering
+2026-05-07 16:46:30 | INFO     | load.silver               | ============================================================
+2026-05-07 16:46:30 | INFO     | load.silver               | Last processed date in Silver: None
+2026-05-07 16:46:30 | INFO     | load.silver               | Calculating technical indicators...
+2026-05-07 16:46:30 | INFO     | load.silver               | Loading 3765 rows into silver.stock_prices_clean...
+2026-05-07 16:50:07 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:50:07 | INFO     | pipeline                  |  ETL PIPELINE STARTED
+2026-05-07 16:50:07 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:50:07 | INFO     | pipeline                  | Job: stock_market_etl v1.0
+2026-05-07 16:50:07 | INFO     | pipeline                  |  Extracting data...
+2026-05-07 16:50:07 | INFO     | pipeline                  | Last Bronze Date: 2026-05-07
+2026-05-07 16:50:07 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:50:07 | INFO     | extract.reader            | EXTRACT LAYER — yfinance download
+2026-05-07 16:50:07 | INFO     | extract.reader            |   Tickers  : ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'TSLA']
+2026-05-07 16:50:07 | INFO     | extract.reader            |   Period   : 3y  |  Interval: 1d
+2026-05-07 16:50:07 | INFO     | extract.reader            | =======================================================
+2026-05-07 16:50:14 | INFO     | extract.reader            | Extracted 3765 rows
+2026-05-07 16:50:14 | INFO     | extract.reader            | Tickers: 5
+2026-05-07 16:50:14 | INFO     | extract.reader            | Date range: 2023-05-08 00:00:00 -> 2026-05-07 00:00:00
+2026-05-07 16:50:14 | INFO     | pipeline                  | No new data to process
+2026-05-07 16:50:14 | INFO     | pipeline                  |  Skipping ETL (no new data)
+2026-05-07 16:50:14 | INFO     | pipeline                  |  Processing Silver layer...
+2026-05-07 16:50:14 | INFO     | load.silver               | ============================================================
+2026-05-07 16:50:14 | INFO     | load.silver               | SILVER LAYER - Incremental Feature Engineering
+2026-05-07 16:50:14 | INFO     | load.silver               | ============================================================
+2026-05-07 16:50:14 | INFO     | load.silver               | Last processed date in Silver: None
+2026-05-07 16:50:14 | INFO     | load.silver               | Calculating technical indicators...
+2026-05-07 16:50:14 | INFO     | load.silver               | Loading 3765 rows into silver.stock_prices_clean...
+2026-05-07 16:50:14 | INFO     | load.silver               | Silver layer updated successfully [OK]
+2026-05-07 16:50:14 | INFO     | pipeline                  | Silver updated -> 3765 rows
+2026-05-07 16:50:14 | INFO     | load.silver               | Refreshing GOLD view...
+2026-05-07 16:50:14 | INFO     | load.silver               | Gold view refreshed [OK]
+2026-05-07 16:50:14 | INFO     | pipeline                  |  Gold view refreshed
+2026-05-07 16:50:14 | INFO     | pipeline                  | ============================================================
+2026-05-07 16:50:14 | INFO     | pipeline                  |  PIPELINE COMPLETED
+2026-05-07 16:50:14 | INFO     | pipeline                  | New records processed: 0
+2026-05-07 16:50:14 | INFO     | pipeline                  | Silver processed: 3765
+2026-05-07 16:50:14 | INFO     | pipeline                  | Duration: 7.76s
+2026-05-07 16:50:14 | INFO     | pipeline                  | ============================================================

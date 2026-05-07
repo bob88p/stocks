@@ -1,20 +1,10 @@
-"""transformation/clean.py – Silver Layer Cleaning & Validation.
-
-Tasks:
-    1. Standardize date format → YYYY-MM-DD
-    2. Remove duplicate records
-    3. Validate numerical columns (prices and volume)
-    4. Handle missing values appropriately
-
-Important:
-    - Missing dates (weekends & market holidays) are EXPECTED and NOT errors.
-    - We only flag rows that are present but have invalid/missing values.
-"""
+""
 
 import pandas as pd
 import numpy as np
 from datetime import date
 from typing import Tuple
+import os
 
 from utils.logger import get_logger
 
@@ -31,20 +21,9 @@ KEY_COLS    = ["trade_date", "ticker"]
 # ============================================================
 
 def clean(df: pd.DataFrame) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    """
-    Clean and validate the extracted stock DataFrame.
 
-    Args:
-        df: Raw DataFrame from extract layer
-            Expected columns: Date, Ticker, Open, High, Low, Close, Volume
-
-    Returns:
-        (valid_df, rejected_df)
-        - valid_df    : cleaned rows ready for Gold layer
-        - rejected_df : rows that failed validation with a 'reject_reason' column
-    """
     logger.info("=" * 55)
-    logger.info("SILVER LAYER — Cleaning & Validation")
+    logger.info("Cleaning ")
     logger.info(f"Input rows : {len(df)}")
     logger.info("=" * 55)
 
@@ -287,3 +266,10 @@ def _cast_dtypes(df: pd.DataFrame) -> pd.DataFrame:
     df["close_price"]  = df["close_price"].astype(float).round(4)
     df["volume"] = df["volume"].astype("Int64")
     return df
+
+
+def write_rejections (df_rejected, output_path):
+    rej_path = os.path.join(output_path, "rejections.csv")
+    df_rejected.to_csv(rej_path, index=False)
+    logger.info(f"Rejected records written to: {rej_path}")
+    return rej_path
